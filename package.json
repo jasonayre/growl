@@ -1,0 +1,15 @@
+{
+  "name": "growl",
+  "main": "./lib/growl",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A short description of your package",
+  "activationEvents": ["growl:toggle"],
+  "repository": "https://github.com/atom/growl",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
