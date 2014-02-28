@@ -1,19 +1,19 @@
 {View} = require 'atom'
-require './growl-notification'
+
+GrowlNotification = require './growl-notification'
 
 module.exports =
 class GrowlView extends View
   @content: ->
     @div class: 'growl overlay from-top', =>
-      @h1 "Spacecraft"
-      @ul outlet: "list", =>
-        @li "Apollo"
-        @li "Soyuz"
-        @li "Space Shuttle"
-        @subview 'growNotifications', new GrowlNotification(body: "whatever")
+      @ul outlet: "list"
+        # @li new GrowlNotification(body: "whatever")
+
+        # @subview 'growNotifications', new GrowlNotification(body: "whatever")
 
   initialize: (serializeState) ->
     atom.workspaceView.command "growl:toggle", => @toggle()
+    @add("blah", "blahhh")
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -21,6 +21,10 @@ class GrowlView extends View
   # Tear down any state and detach
   destroy: ->
     @detach()
+
+  add: (text, type) ->
+    @list.append =>
+      new GrowlNotification(message: text, type: type)
 
   toggle: ->
     console.log "GrowlView was toggled!"

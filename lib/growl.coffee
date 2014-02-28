@@ -1,5 +1,4 @@
 GrowlView = require './growl-view'
-GrowlNotification = require './growl-notification'
 
 module.exports =
   growlView: null

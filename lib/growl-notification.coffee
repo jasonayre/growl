@@ -2,20 +2,13 @@
 
 module.exports =
 class GrowlNotification extends View
-  @content: ->
-    @div class: 'item', =>
-      @div "I am a growl notifcati", class: "message"
-
-  initialize: (serializeState) ->
-    console.log serializeState
-    @add()
-
-  # Returns an object that can be retrieved when package is activated
-  serialize: ->
-
-  # Tear down any state and detach
-  destroy: ->
-    @detach()
+  @content: (params) ->
+    @li =>
+      @div class: 'item', =>
+        @div params.message, class: "message"
 
   add: ->
     console.log "adding notificaiton"
+
+  message: =>
+    @message
