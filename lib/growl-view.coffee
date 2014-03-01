@@ -5,7 +5,7 @@ GrowlNotification = require './growl-notification'
 module.exports =
 class GrowlView extends View
   @content: ->
-    @div class: 'growl overlay from-top', =>
+    @div class: 'growl', =>
       @ul outlet: "list"
         # @li new GrowlNotification(body: "whatever")
 
@@ -13,7 +13,12 @@ class GrowlView extends View
 
   initialize: (serializeState) ->
     atom.workspaceView.command "growl:toggle", => @toggle()
-    @add("blah", "blahhh")
+    atom.workspaceView.command "growl:add", (message, type) =>
+      @add(message, type)
+
+    @add("asdasdsd", "success")
+
+
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->

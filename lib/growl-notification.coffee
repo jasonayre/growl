@@ -4,8 +4,8 @@ module.exports =
 class GrowlNotification extends View
   @content: (params) ->
     @li =>
-      @div class: 'item', =>
-        @div params.message, class: "message"
+      @div class: 'growl-item', =>
+        @div params.message, class: "alert #{params.type}"
 
   add: ->
     console.log "adding notificaiton"
